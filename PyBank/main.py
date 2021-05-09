@@ -8,12 +8,11 @@ profit_inc = 0
 profit_inc_month = 0
 loss_dec = 0
 loss_dec_month = 0
-
 month_count = []
 monthly_change = []
 
 #"." for VS Code, ".." for Terminal Gitbash
-csvpath = os.path.join(".", "PyBank" ,"Resources", "budget_data.csv")
+csvpath = os.path.join("..", "PyBank" ,"Resources", "budget_data.csv")
 
 with open(csvpath) as csvfile:
 
@@ -51,19 +50,21 @@ with open(csvpath) as csvfile:
     highest = max(monthly_change)
     lowest = min(monthly_change)
 
-    print("Financial Analysis")
-    print("----------------------------")
-    print("Total Months: " + str(total_months))
-    print("Total: $" + str(net_amt))
-    print("Average Change: $" + str(avg_changes))
-    print("Greatest Increase in Profits: " + profit_inc_month + "($" + str(profit_inc) + ")")
-    print("Greatest Decrease in Profits: " + loss_dec_month + "($" +str(loss_dec) + ")")
+    print(f"Financial Analysis")
+    print(f"----------------------------")
+    print(f"Total Months: {total_months}")
+    print(f"Total: ${net_amt}")
+    print(f"Average Change: ${avg_changes}")
+    print(f"Greatest Increase in Profits: {profit_inc_month} (${profit_inc})")
+    print(f"Greatest Decrease in Profits: {loss_dec_month} (${loss_dec})")
 
-    PyBank = open("output.txt","w+")
-    PyBank.write("Financial Analysis")
-    PyBank.write("\n" + "----------------------------")
-    PyBank.write("\n" + "Total Months: " + str(total_months))
-    PyBank.write("\n" + "Total: $" + str(net_amt))
-    PyBank.write("\n" + "Average Change: $" + str(avg_changes))
-    PyBank.write("\n" + "Greatest Increase in Profits: " + profit_inc_month + "($" + str(profit_inc) + ")")
-    PyBank.write("\n" + "Greatest Decrease in Profits: " + loss_dec_month + "($" +str(loss_dec) + ")")
+    output_file = os.path.join("..", "PyBank", "analysis", "PyBank_output.txt")
+    with open(output_file,"w") as txtfile:
+
+        txtfile.write(f"Financial Analysis")
+        txtfile.write(f"\n----------------------------")
+        txtfile.write(f"\nTotal Months: {total_months}")
+        txtfile.write(f"\nTotal: ${net_amt}")
+        txtfile.write(f"\nAverage Change: ${avg_changes}")
+        txtfile.write(f"\nGreatest Increase in Profits: {profit_inc_month}(${profit_inc})")
+        txtfile.write(f"\nGreatest Decrease in Profits: {loss_dec_month}(${loss_dec})")
