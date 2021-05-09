@@ -29,8 +29,16 @@ with open(csvpath) as csvfile:
         else:
             otooley_votes += 1
 
-print(total_votes)
-print(khan_votes)
-print(correy_votes)
-print(li_votes)
-print(otooley_votes)
+    khan_percent = (khan_votes/total_votes)
+    correy_percent = (correy_votes/total_votes)
+    li_percent = (li_votes/total_votes)
+    otooley_percent = (otooley_votes/total_votes)
+
+print(f"Election Results")
+print(f"-------------------------")
+print(f"Total Votes: {total_votes}")
+print(f"-------------------------")
+print(f"Khan: {khan_percent: .3%} ({khan_votes})")
+print(f"Correy: {correy_percent: .3%} ({correy_votes})")
+print(f"Li: {li_percent: .3%} ({li_votes})")
+print(f"O'Tooley: {otooley_percent: .3%} ({otooley_votes})")
